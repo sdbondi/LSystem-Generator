@@ -3,7 +3,7 @@
 
 	var module = angular.module('lsystem.controllers', []);
 
-	module.controller('MainCtrl', function ($scope) {
+	module.controller('MainCtrl', function ($scope, $timeout) {
 		angular.extend($scope, {
 		    startString: 'A',
         startX: 0,
@@ -79,12 +79,14 @@
 
       $scope.generate = function() {
         $scope.busy = true;
-        var n = +$scope.n;
-        if (!n || +n > 15) { return; }
-        ctx.fillStyle = '#FFF';
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        render($scope.getString());
-        $scope.busy = false;
+        $timeout(function() {
+          var n = +$scope.n;
+          if (!n || +n > 15) { return; }
+          ctx.fillStyle = '#FFF';
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          render($scope.getString());
+          $scope.busy = false;
+        });
       };
 	});
 
