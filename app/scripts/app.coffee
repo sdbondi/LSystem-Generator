@@ -1,13 +1,8 @@
-'use strict';
-
 angular.module('lsystemGeneratorApp', ['lsystem.controllers'])
-  .config(function ($routeProvider) {
+  .config ($routeProvider) ->
     $routeProvider
-      .when('/', {
+      .when '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .otherwise({
+      .otherwise
         redirectTo: '/'
-      });
-  });
