@@ -1,6 +1,50 @@
-<div class="hero-unit">
-  <div ng-form="params">
-    <div class="row">
+<div class="hero-unit" ng-init="generate()">
+	<div ng-form="params">    
+		<div class="row">
+			<div class="col-lg-2">
+				<label for="start-string">Start string</label>
+			</div>
+			<div class="col-lg-4">
+				<input type="text" name="start" id="start-string" ng-model="startString">
+			</div>
+		</div>
+
+		 <div class="row">
+			<div class="col-lg-2">
+				<label for="start-x">Start X / Y</label>
+			</div>
+			<div class="col-lg-4">
+				<p>{{ startX }}</p>
+				<f8-slider-bar model="startX" min="0" max="5000" change="generate()" />
+			</div>
+			<div class="col-lg-4">
+				<p>{{ startY }}</p>
+				<f8-slider-bar model="startY" min="0" max="5000" change="generate()" />
+			</div>
+		</div>
+
+		<hr>
+		<div class="row">
+			<div class="col-lg-2">
+				<label for="angle">Angle</label>
+			</div>
+			<div class="col-lg-4">
+				{{ angle }}
+				<f8-slider-bar model="angle" min="0" max="360" change="generate()" />
+			</div>
+		</div>
+
+		 <div class="row">
+			<div class="col-lg-2">
+				<label for="scale">Scale</label>
+			</div>
+			<div class="col-lg-4">
+				<f8-slider-bar model="scale" min="0" max="100" change="generate()" />
+			</div>
+		</div>
+
+		<hr>
+		<div class="row">
       <div class="col-lg-2">
         A =
       </div>
@@ -13,7 +57,6 @@
         <label for="a-direction-back">Move Backward</label>
       </div>
     </div>
-    <hr>
 
     <div class="row">
       <div class="col-lg-2">
@@ -29,75 +72,37 @@
       </div>
     </div>
 
-    <hr>
-    <div class="row">
-      <div class="col-lg-2">
-        <label for="start-string">Start string</label>
-      </div>
-      <div class="col-lg-4">
-        <input type="text" name="start" id="start-string" ng-model="startString">
-      </div>
-    </div>
+		<div class="row">
+			<div class="col-lg-2">
+				<label for="a-rule">A Rule</label>
+			</div>
+			<div class="col-lg-4">
+				<input type="text" name="a-rule" id="a-rule" ng-model="aRule">
+			</div>
+		</div>
 
-     <div class="row">
-      <div class="col-lg-2">
-        <label for="start-x">Start X / Y</label>
-      </div>
-      <div class="col-lg-4">
-        <input type="text" name="start-x" id="start-x" ng-model="startX">
-        <input type="text" name="start-y" id="start-y" ng-model="startY">
-      </div>
-    </div>
+		<div class="row">
+			<div class="col-lg-2">
+				<label for="b-rule">B Rule</label>
+			</div>
+			<div class="col-lg-4">
+				<input type="text" name="b-rule" id="b-rule" ng-model="bRule">
+			</div>
+		</div>
 
-    <hr>
-    <div class="row">
-      <div class="col-lg-2">
-        <label for="angle">Angle</label>
-      </div>
-      <div class="col-lg-4">
-        <input type="text" name="angle" id="angle" ng-model="angle">
-      </div>
-    </div>
+		<div class="row">
+			<div class="col-lg-4">
+				<label for="n">N = </label>
+				<!-- input type="text" name="n" id="n" ng-model="n" -->
+				{{n}}
+				<f8-slider-bar model="n" name="n" min="1" max="15" change="generate()" />
+			</div>
+		</div>
 
-     <div class="row">
-      <div class="col-lg-2">
-        <label for="scale">Scale</label>
-      </div>
-      <div class="col-lg-4">
-        <input type="text" name="scale" id="scale" ng-model="scale">
-      </div>
-    </div>
+		<button ng-click="generate()" ng-disabled="busy">Generate</button>
 
-    <hr>
-    <div class="row">
-      <div class="col-lg-2">
-        <label for="a-rule">A Rule</label>
-      </div>
-      <div class="col-lg-4">
-        <input type="text" name="a-rule" id="a-rule" ng-model="aRule">
-      </div>
-    </div>
+		<hr>
 
-    <div class="row">
-      <div class="col-lg-2">
-        <label for="b-rule">B Rule</label>
-      </div>
-      <div class="col-lg-4">
-        <input type="text" name="b-rule" id="b-rule" ng-model="bRule">
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4">
-        <label for="n">N = </label>
-        <input type="text" name="n" id="n" ng-model="n">
-      </div>
-    </div>
-
-    <button ng-click="generate()" ng-disabled="busy">Generate</button>
-
-    <hr>
-
-    <canvas width="1280" height="1080" id="draw"/>
-  </div>
+		<canvas width="2560" height="2160" id="draw"/>
+	</div>
 </div>

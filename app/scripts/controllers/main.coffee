@@ -84,4 +84,6 @@ module.controller 'MainCtrl', ['$scope', '$timeout', ($scope, $timeout) ->
 			ctx.clearRect(0, 0, canvas.width, canvas.height)
 			render(genString())
 			$scope.busy = false
+
+	$scope.$watch 'aDirection + bDirection', $scope.generate
 ]

@@ -1,4 +1,4 @@
-angular.module('lsystemGeneratorApp', ['lsystem.controllers'])
+angular.module('lsystemGeneratorApp', ['lsystem.controllers', 'fixate.ui'])
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
