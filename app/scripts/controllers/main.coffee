@@ -1,6 +1,7 @@
 module = angular.module 'lsystem.controllers', []
 
 module.controller 'MainCtrl', ['$scope', '$timeout', ($scope, $timeout) ->
+	lastString = false
 	angular.extend $scope,
 		startString: 'A',
 		startX: 0,
@@ -74,7 +75,7 @@ module.controller 'MainCtrl', ['$scope', '$timeout', ($scope, $timeout) ->
 
 		ctx.stroke()
 
-	$scope.generate = ->
+	$scope.generate = (regen = true) ->
 		$scope.busy = true
 		$timeout ->
 			n = +$scope.n
@@ -82,8 +83,9 @@ module.controller 'MainCtrl', ['$scope', '$timeout', ($scope, $timeout) ->
 				return
 
 			ctx.clearRect(0, 0, canvas.width, canvas.height)
-			render(genString())
+			lastString = genString() if regen || !lastString
+			render(lastString)
 			$scope.busy = false
 
-	$scope.$watch 'aDirection + bDirection', $scope.generate
+	$scope.$watch 'aDirection + bDirection', -> $scope.generate(false)
 ]

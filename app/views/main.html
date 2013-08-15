@@ -15,11 +15,11 @@
 			</div>
 			<div class="col-lg-4">
 				<p>{{ startX }}</p>
-				<f8-slider-bar model="startX" min="0" max="5000" change="generate()" />
+				<f8-slider-bar model="startX" min="0" max="5000" change="generate(false)" />
 			</div>
 			<div class="col-lg-4">
 				<p>{{ startY }}</p>
-				<f8-slider-bar model="startY" min="0" max="5000" change="generate()" />
+				<f8-slider-bar model="startY" min="0" max="5000" change="generate(false)" />
 			</div>
 		</div>
 
@@ -30,7 +30,7 @@
 			</div>
 			<div class="col-lg-4">
 				{{ angle }}
-				<f8-slider-bar model="angle" min="0" max="360" change="generate()" />
+				<f8-slider-bar model="angle" min="0" max="360" change="generate(false)" />
 			</div>
 		</div>
 
@@ -39,7 +39,7 @@
 				<label for="scale">Scale</label>
 			</div>
 			<div class="col-lg-4">
-				<f8-slider-bar model="scale" min="0" max="100" change="generate()" />
+				<f8-slider-bar model="scale" min="0" max="100" change="generate(false)" />
 			</div>
 		</div>
 
@@ -95,11 +95,11 @@
 				<label for="n">N = </label>
 				<!-- input type="text" name="n" id="n" ng-model="n" -->
 				{{n}}
-				<f8-slider-bar model="n" name="n" min="1" max="15" change="generate()" />
+				<f8-slider-bar model="n" name="n" min="1" max="15" change="generate(true)" />
 			</div>
 		</div>
 
-		<button ng-click="generate()" ng-disabled="busy">Generate</button>
+		<button ng-click="generate(true)" ng-disabled="busy">Generate</button>
 
 		<hr>
 
