@@ -2,6 +2,7 @@ module = angular.module 'lsystem.controllers', []
 
 module.controller 'MainCtrl', ['$scope', '$timeout', ($scope, $timeout) ->
 	lastString = false
+	$scope.showMenu = true
 	angular.extend $scope,
 		startString: 'A',
 		startX: 0,
@@ -25,7 +26,7 @@ module.controller 'MainCtrl', ['$scope', '$timeout', ($scope, $timeout) ->
 		}
 
 	genString = ->
-		rules = getRules();
+		rules = getRules()
 
 		_pass = (s, n) ->
 			if n is 0
@@ -54,7 +55,7 @@ module.controller 'MainCtrl', ['$scope', '$timeout', ($scope, $timeout) ->
 		x = +$scope.startX
 		y = +$scope.startY
 		dir = 0
-		scale = +$scope.scale
+		scale = +$scope.scale / 3
 		angle = +$scope.angle * Math.PI / 180
 
 		ctx.beginPath()

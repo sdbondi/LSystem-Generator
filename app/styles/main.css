@@ -1,5 +1,14 @@
 /* Will be compiled down to a single stylesheet with your sass files */
 
+#draw {
+	/* width: 100%;*/
+	/* height: 100%;*/
+}
+
+.fixed {
+	position: fixed;
+}
+
 .slider-container {
   position: relative;
   display: block;
@@ -28,7 +37,7 @@
 
 .slider-progress {
   position: absolute;
-  background-color: #c32435;
+	background-color: #247BC3;
   top: 0;
   bottom: 0;
   left: 0; }
@@ -46,3 +55,18 @@
 .slider-handle:hover,
 .slider-handle:active {
   background: #CCC; }
+
+.sidebar {
+	position: fixed;
+	width: 300px;
+	background: white;
+	transition: 1s all;
+}
+
+.sidebar.hide {
+	-webkit-transform: translate(-101%);
+	-moz-transform:    translate(-101%);
+	-ms-transform:     translate(-101%);
+	-o-transform:      translate(-101%);
+	transform:         translate(-101%);
+}

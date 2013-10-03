@@ -1,5 +1,6 @@
-<div class="hero-unit" ng-init="generate()">
-	<div ng-form="params">    
+<button ng-click="showMenu = !showMenu" data-dismiss="sidebar">{{ showMenu ? 'Hide' : 'Show' }}</button>
+<div class="hero-unit sidebar" ng-init="generate()" ng-class="{hide: !showMenu}">
+	<div ng-form="params">
 		<div class="row">
 			<div class="col-lg-2">
 				<label for="start-string">Start string</label>
@@ -84,6 +85,7 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<label for="b-rule">B Rule</label>
+				<img src="images/Dr-Steve-Brule.jpg" title="Deal with it, Ya Dingus!">
 			</div>
 			<div class="col-lg-4">
 				<input type="text" name="b-rule" id="b-rule" ng-model="bRule">
@@ -93,7 +95,6 @@
 		<div class="row">
 			<div class="col-lg-4">
 				<label for="n">N = </label>
-				<!-- input type="text" name="n" id="n" ng-model="n" -->
 				{{n}}
 				<f8-slider-bar model="n" name="n" min="1" max="15" change="generate(true)" />
 			</div>
@@ -103,6 +104,7 @@
 
 		<hr>
 
-		<canvas width="2560" height="2160" id="draw"/>
 	</div>
 </div>
+
+<canvas width="2560" height="2160" id="draw"/>
